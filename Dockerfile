@@ -9,7 +9,7 @@ RUN go mod download
 COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -o tes .
+    go build -o test .
 
 # ---------- Runtime Stage ----------
 FROM alpine:3.21
@@ -23,4 +23,4 @@ COPY --from=builder /app/test .
 
 EXPOSE 8080
 
-CMD ["./mqtt-server"]
+CMD ["./test"]
