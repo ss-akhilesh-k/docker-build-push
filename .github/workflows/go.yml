@@ -1,6 +1,7 @@
 name: Build and Push Docker Image to GHCR
 
-pull_request:
+on:
+  pull_request:
     types: [closed]
     branches: ["main"]
 
